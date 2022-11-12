@@ -12,7 +12,7 @@ const calculate = {
 
     '-': (firstNumber, secondNumber) => firstNumber - secondNumber,
 
-    '=': (firstNumber, secondNumber) => secondNumber,
+    '=': (secondNumber) => secondNumber,
 };
 
 let firstValue = 0;
