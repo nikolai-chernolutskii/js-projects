@@ -1,8 +1,9 @@
 'use strict';
 
+// variables for the buttons
 let a = ''; // first number
 let b = ''; // second number
-let sign = '' // mathematical operator
+let sign = ''; // mathematical operator
 let finish = false;
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
@@ -20,6 +21,7 @@ function clearAll() {
 }
 
 document.querySelector('.ac').onclick = clearAll;
+
 document.querySelector('.buttons').onclick = (event) => {
     // the click does not fall on a btn
     if (!event.target.classList.contains('btn')) return;
@@ -39,15 +41,13 @@ document.querySelector('.buttons').onclick = (event) => {
             console.log(a, b, sign);
             out.textContent = a;
         }
-        // if a does not equal an empty string (if it is already filled) AND if b does not equal an empty string AND if finish is pressed
+        // if a does not equal an empty string (if it is already filled) AND if b does not equal an empty string AND if finish variable is true
         else if (a !== '' && b !== '' && finish) {
-            // setting the b variable to nil
+            // set the b variable to nil, i.e. register the first entered symbol
             b = key;
             finish = false;
             out.textContent = b;
-        }
-
-        else {
+        } else {
             b += key;
             out.textContent = b;
         }
@@ -64,7 +64,7 @@ document.querySelector('.buttons').onclick = (event) => {
         return;
     }
 
-    // equal sign is pressed
+    // if equal sign is pressed
     if (key === '=') {
         if (b === '') b = a;
         switch (sign) {
