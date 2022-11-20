@@ -71,7 +71,7 @@ function resetAll() {
     calculatorDisplay.textContent = '0';
 }
 
-// Add event listeneres for numbers, operators, decimal btns
+// Add event listeners for numbers, operators, decimal btns
 inputBtns.forEach((inputBtn) => {
     if (inputBtn.classList.length === 0) /* this will be the case for our number btns because there is no class assigned to them */ {
         inputBtn.addEventListener('click', () => sendNumberValue(inputBtn.value)); /* send the input btn value assigned in html */
