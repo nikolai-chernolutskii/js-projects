@@ -6,9 +6,10 @@ let b = ''; // second number
 let sign = ''; // mathematical operator
 let finish = false;
 
-const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const action = ['-', '+', 'X', '/', '^'];
 const sqrt = '√';
+const decimal = '.';
 
 // calculator monitor
 const out = document.querySelector('.calc-screen p');
@@ -109,5 +110,23 @@ document.querySelector('.buttons').onclick = (event) => {
         a = a ** (1 / 2);
         finish = true;
         out.textContent = a;
+    }
+
+    if (key === decimal) {
+        if (b === '' && sign === '') {
+            if (a.includes('.')) {
+                out.textContent = a;
+            } else {
+                a += key;
+                out.textContent = a;
+            }
+        } else {
+            if (b.includes('.')) {
+                out.textContent = b;
+            } else {
+                b += key;
+                out.textContent = b;
+            }
+        }
     }
 }
