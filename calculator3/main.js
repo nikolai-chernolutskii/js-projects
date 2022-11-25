@@ -65,7 +65,7 @@ document.querySelector('.buttons').onclick = (event) => {
     if (digit.includes(key)) {
         // if b equals an empty string AND the mathematical operator equals an empty string then we have just started populating the a variable
         if (b === '' && sign === '') {
-            if (a === '0' || a === '') {
+            if (a === '0') {
                 a = key;
             } else {
                 a += key; // in that case we replace the screen content (0) with the 1st digit and then add any other digits (if any) to the 1st one
@@ -80,7 +80,11 @@ document.querySelector('.buttons').onclick = (event) => {
             finish = false;
             out.textContent = b;
         } else {
-            b += key;
+            if (b === '0') {
+                b = key;
+            } else {
+                b += key;
+            }
             out.textContent = b;
         }
         console.log(a, sign, b);
