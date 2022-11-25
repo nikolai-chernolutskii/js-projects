@@ -22,7 +22,28 @@ function clearAll() {
     out.textContent = 0;
 }
 
-// document.querySelector('.ac').onclick = clearAll;
+function delCharacter() {
+    if (a && !b) {
+        out.textContent = out.textContent.slice(0, -1);
+        a = out.textContent;
+        return;
+    } else {
+        out.textContent = out.textContent.slice(0, -1);
+        b = out.textContent;
+        return;
+    }
+}
+
+function negative() {
+    if (b === '' && sign === '') {
+        a = a * -1;
+        out.textContent = a;
+    } else {
+        b = b * -1;
+        out.textContent = b;
+
+    }
+}
 
 document.querySelector('.buttons').onclick = (event) => {
     // the click does not fall on a btn
@@ -30,16 +51,20 @@ document.querySelector('.buttons').onclick = (event) => {
     // clearAll btn clicked
     if (event.target.classList.contains('ac')) return clearAll();
 
+    if (event.target.classList.contains('del')) return delCharacter();
+
+    if (event.target.classList.contains('plus-minus')) return negative();
+
     out.textContent = '';
 
     // receiving the value of the clicked btn
     const key = event.target.textContent;
 
-    // if 0-9 btn or . btn is pressed
+    // if 0-9 btn is pressed
     if (digit.includes(key)) {
         // if b equals an empty string AND the mathematical operator equals an empty string then we have just started populating the a variable
         if (b === '' && sign === '') {
-            a += key;
+            a += key; // in that case we replace the screen content (0) with the 1st digit and then add any other digits (if any) to the 1st one
             console.log(a, b, sign);
             out.textContent = a;
         }
@@ -61,7 +86,42 @@ document.querySelector('.buttons').onclick = (event) => {
     if (action.includes(key)) {
         sign = key;
         // display the mathematical operator
-        out.textContent = sign; // CORRECT DISPLAY TO SHOW: 1ST OPERAND, SIGN
+        out.textContent = a + sign;
+
+        // *** CHAINING OPERATIONS
+        // if (a && !b) {
+        //     out.textContent = a + sign; 
+        // } else {
+        //     switch (sign) {
+        //         case "+":
+        //             a = +a + +b;
+        //             break;
+        //         case "-":
+        //             a = +a - +b;
+        //             break;
+        //         case "X":
+        //             a = +a * +b;
+        //             break;
+        //         case "/":
+        //             if (b === '0') {
+        //                 out.textContent = 'Error 😋';
+        //                 a = '';
+        //                 b = '';
+        //                 sign = '';
+        //                 return;
+        //             }
+        //             a = +a / +b;
+        //             break;
+        //         case "^":
+        //             a = a ** b;
+        //             break;
+        //     }
+
+        //     finish = true;
+        //     out.textContent = a + sign;
+        // }
+        // ***
+
         console.log(a, b, sign);
         return;
     }
@@ -94,7 +154,6 @@ document.querySelector('.buttons').onclick = (event) => {
                 a = a ** b;
                 break;
         }
-
         finish = true;
         out.textContent = a;
     }
