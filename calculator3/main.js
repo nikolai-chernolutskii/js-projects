@@ -65,7 +65,11 @@ document.querySelector('.buttons').onclick = (event) => {
     if (digit.includes(key)) {
         // if b equals an empty string AND the mathematical operator equals an empty string then we have just started populating the a variable
         if (b === '' && sign === '') {
-            a += key; // in that case we replace the screen content (0) with the 1st digit and then add any other digits (if any) to the 1st one
+            if (a === '0' || a === '') {
+                a = key;
+            } else {
+                a += key; // in that case we replace the screen content (0) with the 1st digit and then add any other digits (if any) to the 1st one
+            }
             console.log(a, b, sign);
             out.textContent = a;
         }
@@ -77,7 +81,7 @@ document.querySelector('.buttons').onclick = (event) => {
             out.textContent = b;
         } else {
             b += key;
-            out.textContent = b; // CORRECT DISPLAY TO SHOW: 1ST OPERAND, SIGN, 2ND OPERAND
+            out.textContent = b;
         }
         console.log(a, sign, b);
         return;
@@ -126,7 +130,6 @@ document.querySelector('.buttons').onclick = (event) => {
         console.log(a, b, sign);
         return;
     }
-
 
     // if equal sign is pressed
     if (key === '=') {
