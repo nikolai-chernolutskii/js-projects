@@ -4,6 +4,7 @@
 let a = ''; // first number
 let b = ''; // second number
 let sign = ''; // mathematical operator
+let sign2 = ''; // chained mathematical operator
 let finish = false;
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -84,43 +85,43 @@ document.querySelector('.buttons').onclick = (event) => {
 
     // if +, -, *, /, exp  is pressed
     if (action.includes(key)) {
-        sign = key;
-        // display the mathematical operator
-        out.textContent = a + sign;
-
         // *** CHAINING OPERATIONS
-        // if (a && !b) {
-        //     out.textContent = a + sign; 
-        // } else {
-        //     switch (sign) {
-        //         case "+":
-        //             a = +a + +b;
-        //             break;
-        //         case "-":
-        //             a = +a - +b;
-        //             break;
-        //         case "X":
-        //             a = +a * +b;
-        //             break;
-        //         case "/":
-        //             if (b === '0') {
-        //                 out.textContent = 'Error 😋';
-        //                 a = '';
-        //                 b = '';
-        //                 sign = '';
-        //                 return;
-        //             }
-        //             a = +a / +b;
-        //             break;
-        //         case "^":
-        //             a = a ** b;
-        //             break;
-        //     }
+        if (a && b && !finish) {
+            sign2 = key;
+            switch (sign) {
+                case "+":
+                    a = +a + +b;
+                    break;
+                case "-":
+                    a = +a - +b;
+                    break;
+                case "X":
+                    a = +a * +b;
+                    break;
+                case "/":
+                    if (b === '0') {
+                        out.textContent = 'Error 😋';
+                        a = '';
+                        b = '';
+                        sign = '';
+                        return;
+                    }
+                    a = +a / +b;
+                    break;
+                case "^":
+                    a = a ** b;
+                    break;
+            }
 
-        //     finish = true;
-        //     out.textContent = a + sign;
-        // }
-        // ***
+            finish = true;
+            out.textContent = a + sign2;
+
+            sign = sign2;
+        } else {
+            sign = key;
+            // display the mathematical operator
+            out.textContent = a + sign;
+        }
 
         console.log(a, b, sign);
         return;
