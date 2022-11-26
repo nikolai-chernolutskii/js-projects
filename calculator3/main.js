@@ -1,24 +1,23 @@
 'use strict';
 
-// variables for the buttons
 let a = ''; // first number
 let b = ''; // second number
 let sign = ''; // mathematical operator
 let sign2 = ''; // chained mathematical operator
-let finish = false;
+let finish = false; // calculation complete status
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const action = ['-', '+', 'X', '/', '^'];
 const sqrt = '√';
 const decimal = '.';
 
-// calculator monitor
-const out = document.querySelector('.calc-screen p');
+const out = document.querySelector('.calc-screen p'); // calculator display
 
 function clearAll() {
     a = ''; //first number and result
     b = ''; // second number
     sign = ''; // mathematical operator
+    sign2 = ''; // chained mathematical operator
     finish = false;
     out.textContent = 0;
 }
@@ -42,24 +41,21 @@ function negative() {
     } else {
         b = b * -1;
         out.textContent = b;
-
     }
 }
 
 document.querySelector('.buttons').onclick = (event) => {
-    // the click does not fall on a btn
-    if (!event.target.classList.contains('btn')) return;
-    // clearAll btn clicked
-    if (event.target.classList.contains('ac')) return clearAll();
+    if (!event.target.classList.contains('btn')) return; // the click does not fall on a btn
 
-    if (event.target.classList.contains('del')) return delCharacter();
+    if (event.target.classList.contains('ac')) return clearAll(); // clearAll btn clicked
 
-    if (event.target.classList.contains('plus-minus')) return negative();
+    if (event.target.classList.contains('del')) return delCharacter(); // del btn clicked
+
+    if (event.target.classList.contains('plus-minus')) return negative(); // +/- btn clicked
 
     out.textContent = '';
 
-    // receiving the value of the clicked btn
-    const key = event.target.textContent;
+    const key = event.target.textContent; // receiving the value of the clicked btn
 
     // if 0-9 btn is pressed
     if (digit.includes(key)) {
@@ -68,15 +64,14 @@ document.querySelector('.buttons').onclick = (event) => {
             if (a === '0') {
                 a = key;
             } else {
-                a += key; // in that case we replace the screen content (0) with the 1st digit and then add any other digits (if any) to the 1st one
+                a += key; //  we replace the screen content (0) with the 1st digit and then ADD other digits (if any) to the 1st one
             }
-            console.log(a, b, sign);
+            console.log(a, sign, b);
             out.textContent = a;
         }
         // if a does not equal an empty string (if it is already filled) AND if b does not equal an empty string (if it is already filled) AND if finish variable is true (if the equal sign has been pressed and the calculation has been made)
         else if (a !== '' && b !== '' && finish) {
-            // set the b variable to nil, i.e. register the first entered symbol
-            b = key;
+            b = key; // set the b variable to nil, i.e. register the first entered symbol
             finish = false;
             out.textContent = b;
         } else {
@@ -86,8 +81,8 @@ document.querySelector('.buttons').onclick = (event) => {
                 b += key;
             }
             out.textContent = b;
+            console.log(a, sign, b);
         }
-        console.log(a, sign, b);
         return;
     }
 
@@ -123,15 +118,32 @@ document.querySelector('.buttons').onclick = (event) => {
 
             finish = true;
             out.textContent = a + sign2;
-
             sign = sign2;
+
+            // Limiting the output to 10 digits (both for integers and floats)
+            if (out.textContent.length > 10) {
+
+                let result = out.textContent;
+
+                if (out.textContent.includes('.')) {
+
+                    let decimalLimit = out.textContent.substring(0, 11);
+
+                    result = parseFloat(decimalLimit);
+                } else {
+                    result = out.textContent.substring(0, 10);
+                }
+                out.textContent = result + sign2;
+                a = result;
+                return;
+            } else {
+                out.textContent = a + sign2;
+            }
         } else {
             sign = key;
-            // display the mathematical operator
-            out.textContent = a + sign;
+            out.textContent = a + sign; // display the first operand and the mathematical operator
         }
-
-        console.log(a, b, sign);
+        console.log(a, sign, b);
         return;
     }
 
@@ -164,6 +176,25 @@ document.querySelector('.buttons').onclick = (event) => {
         }
         finish = true;
         out.textContent = a;
+
+        if (out.textContent.length > 10) {
+
+            let result = out.textContent;
+
+            if (out.textContent.includes('.')) {
+
+                let decimalLimit = out.textContent.substring(0, 11);
+
+                result = parseFloat(decimalLimit);
+            } else {
+                result = out.textContent.substring(0, 10);
+            }
+            out.textContent = result;
+            a = result;
+            return;
+        } else {
+            out.textContent = a;
+        }
     }
 
     if (key === sqrt) {
@@ -173,10 +204,28 @@ document.querySelector('.buttons').onclick = (event) => {
             b = '';
             sign = '';
             return;
+        } else {
+            a = a ** (1 / 2);
+            finish = true;
+            out.textContent = a;
+
+            // Limiting the output to 10 digits (both for integers and floats)
+            if (out.textContent.length > 10) {
+
+                let result = out.textContent;
+
+                if (out.textContent.includes('.')) {
+
+                    let decimalLimit = out.textContent.substring(0, 11);
+
+                    result = parseFloat(decimalLimit);
+                } else {
+                    result = out.textContent.substring(0, 10);
+                }
+                out.textContent = result;
+                a = result;
+            }
         }
-        a = a ** (1 / 2);
-        finish = true;
-        out.textContent = a;
     }
 
     if (key === decimal) {
