@@ -6,3 +6,4 @@ This is the main repository for all the JavaScript projects I have made througho
 2. Calculator 2. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/calculator2) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/calculator2/)
 3. Calculator 3. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/calculator3) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/calculator3/)
 4. Expanding cards. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/expanding_cards) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/expanding_cards/)
+5. Progress steps. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/progress_steps) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/progress_steps/)
