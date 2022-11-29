@@ -25,6 +25,10 @@ body {
     transform: rotate(-20deg);
 }
 
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
 .container.show-nav+nav li {
     transform: translateX(0);
     transition-delay: .3s;
