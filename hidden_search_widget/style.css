@@ -27,7 +27,7 @@ body {
     padding: 15px;
     height: 50px;
     width: 50px;
-    /* starting width which will then expand through animation */
+    /* starting width which will then expand on click */
     transition: width .3s ease;
 }
 
@@ -36,11 +36,12 @@ body {
     border: 0;
     cursor: pointer;
     font-size: 24px;
+    height: 50px;
+    width: 50px;
     position: absolute;
     top: 0;
     left: 0;
-    height: 50px;
-    width: 50px;
+    /* starting position which will move to the right on click */
     transition: transform .3s ease;
 }
 
