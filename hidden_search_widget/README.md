@@ -1,5 +1,5 @@
 # Hidden search widget
-_A sample article gets rotated on clicking the hamburger, revealing the navigation menu_.
+_A search icon expands into a search field on click_.
 
 ### Study source: 
 [Udemy course "50 Projects In 50 Days - HTML, CSS & JavaScript
