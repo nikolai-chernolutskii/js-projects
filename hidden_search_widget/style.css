@@ -5,12 +5,54 @@
 }
 
 body {
+    background-image: linear-gradient(90deg, #6d8ad8, #3e7db8);
     font-family: 'Roboto', sans-serif;
     margin: 0;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+
+.search {
+    position: relative;
+    height: 50px;
+}
+
+.input {
+    background-color: #fff;
+    border: 0;
+    font-size: 18px;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    /* starting width which will then expand through animation */
+    transition: width .3s ease;
+}
+
+.btn {
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: transform .3s ease;
+}
+
+.input:focus,
+.btn:focus {
+    outline: none;
+}
+
+.search.active input {
+    width: 200px;
+}
+
+.search.active .btn {
+    transform: translateX(198px);
 }
