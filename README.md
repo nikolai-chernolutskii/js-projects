@@ -10,3 +10,4 @@ This is the main repository for all the JavaScript projects I have made througho
 6. Hidden search widget. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/hidden_search_widget) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/hidden_search_widget/)
 7. Progress steps. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/progress_steps) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/progress_steps/)
 8. Rotating navigation. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/rotating_navigation) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/rotating_navigation/)
+9. Scroll animation. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/scroll_animation) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/scroll_animation/)
