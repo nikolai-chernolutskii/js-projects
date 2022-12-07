@@ -11,3 +11,4 @@ This is the main repository for all the JavaScript projects I have made througho
 7. Progress steps. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/progress_steps) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/progress_steps/)
 8. Rotating navigation. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/rotating_navigation) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/rotating_navigation/)
 9. Scroll animation. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/scroll_animation) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/scroll_animation/)
+10. Split landing page. [Repo](https://github.com/nikolai-chernolutskii/js-projects/tree/gh-pages/split_landing_page) / [Live link](https://nikolai-chernolutskii.github.io/js-projects/split_landing_page/)
