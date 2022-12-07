@@ -7,6 +7,7 @@
     --right-btn-hover-color: rgba(28, 122, 28, 1);
     --hover-width: 75%;
     --unhover-width: 25%;
+    --speed: 1000ms;
 }
 
 html {
@@ -83,6 +84,13 @@ body {
     /* color overlay for the right split */
 }
 
+.right,
+.right::before,
+.left,
+.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
 h1 {
     font-size: 6.4rem;
     color: #fff;
@@ -119,4 +127,15 @@ h1 {
 .right .btn:hover {
     background-color: var(--right-btn-hover-color);
     border-color: var(--right-btn-hover-color);
+}
+
+@media(max-width: 800px) {
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    .btn {
+        width: 19.2rem;
+        padding: 1.92rem;
+    }
 }
