@@ -1,3 +1,9 @@
+const quoteContainer = document.getElementById('quote-container');
+const quoteText = document.getElementById('quote');
+const authorText = document.getElementById('author');
+const twitterBtn = document.getElementById('twitter');
+const newQuoteBtn = document.getElementById('new-quote');
+
 let apiQuotes = []; // We use a _let_ statement here instead of a constant because in the begininning we are setting it as an empty array but later we will change the value of it to pass in the quotes (inside the async function, in the statement "apiQuotes = await response.json();")
 
 // Get quotes from API
@@ -20,7 +26,22 @@ function newQuote() {
     // 2. Multiply it by the length of the array to make sure the resulting number would not fall outside the array of quotes
     // 3. Bring the result from #2 to the nearest integer number using the Math.floor function
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
-    console.log(quote);
+
+    // Check if author field is blank and replace it with 'Unknown'
+    if (!quote.author) {
+        authorText.textContent = 'Unknown';
+    } else {
+        authorText.textContent = quote.author;
+    }
+
+    // Check quote length to determine styling
+    if (quote.text.length > 100) {
+        quoteText.classList.add('long-quote')
+    } else {
+        quoteText.classList.remove('long-quote')
+    }
+
+    quoteText.textContent = quote.text;
 }
 
 // On load
