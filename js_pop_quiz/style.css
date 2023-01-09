@@ -45,6 +45,15 @@ button {
     border-radius: 5px;
 }
 
+button:hover {
+    filter: brightness(85%);
+}
+
+button:active,
+button:focus {
+    filter: brightness(70%);
+}
+
 .correct {
     background-color: lightgreen;
 }
