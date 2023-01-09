@@ -2,11 +2,20 @@
 // statement should be the "statement" div
 // optionButtons should be all the elements within the "options" div
 // explanation should be the "explanation" div
+const statement = document.getElementById('statement');
+const optionButtons = document.querySelector('#options').children
+const explanation = document.getElementById('explanation');
 
 // TODO 2: Declare & assign a variable called fact
 // Its value should be an object with a statement, true/false answer, and explanation
+const fact = {
+    statement: '1 + 1 === 2',
+    answer: 'true',
+    explanation: 'The plus operator performs the addition operation if applied to numbers'
+};
 
 // TODO 3: Set the text of the statement element to the fact's statement
+statement.textContent = fact.statement;
 
 // TODO 4: Declare disable & enable functions to set or remove the "disabled" attribute from a given button element
 // disable(button) should set the button element's attribute "disabled" to the value ""
