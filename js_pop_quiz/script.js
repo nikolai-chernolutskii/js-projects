@@ -40,7 +40,7 @@ for (let optBtn of optionButtons) {
         // Use a for loop to disable all the option buttons
         for (let optBtn of optionButtons) {
             disable(optBtn);
-            optBtn.setAttribute('class', 'disabled');
+            optBtn.classList.add('disabled');
         }
     })
 }
