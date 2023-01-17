@@ -32,10 +32,18 @@ const isCorrect = guessString => guessString === fact.answer.toString();
 // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
 // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
 
+for (let optBtn of optionButtons) {
+    optBtn.addEventListener('click', () => {
+        explanation.textContent = fact.explanation;
 
-// TODO 7: Within the event handler function,
-// Use a for loop to disable all the option buttons
-
+        // TODO 7: Within the event handler function,
+        // Use a for loop to disable all the option buttons
+        for (let optBtn of optionButtons) {
+            disable(optBtn);
+            optBtn.setAttribute('class', 'disabled');
+        }
+    })
+}
 
 // TODO 8: Within the event handler function,
 // Get the guessed value from the clicked button

@@ -54,6 +54,12 @@ button:focus {
     filter: brightness(70%);
 }
 
+.disabled:hover,
+.disabled:active,
+.disabled:focus {
+    filter: none;
+}
+
 .correct {
     background-color: lightgreen;
 }
