@@ -42,10 +42,19 @@ for (let optBtn of optionButtons) {
             disable(optBtn);
             optBtn.classList.add('disabled');
         }
-    })
-}
 
-// TODO 8: Within the event handler function,
-// Get the guessed value from the clicked button
-// Use a conditional to compare the guess to the fact's answer
-// and add the "correct"/"incorrect" class as appropriate
+        // TODO 8: Within the event handler function,
+        // Get the guessed value from the clicked button
+        // Use a conditional to compare the guess to the fact's answer
+        // and add the "correct"/"incorrect" class as appropriate
+
+        isCorrect(optBtn.value) ? optBtn.classList.add('correct') : optBtn.classList.add('incorrect');
+        // (the same as the code below)
+        // if (isCorrect(optBtn.textContent)) {
+        //     optBtn.classList.add('correct');
+        // } else {
+        //     optBtn.classList.add('incorrect');
+        // }
+    })
+
+}
