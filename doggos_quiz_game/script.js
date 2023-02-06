@@ -200,7 +200,11 @@ function getBreedFromURL(url) {
 // Given a URL, fetch the resource at that URL,
 // then parse the response as a JSON object,
 // finally return the "message" property of its body
-async function fetchMessage(url) {}
+async function fetchMessage(url) {
+  const response = await fetch(url).then((data) => data.json());
+  const { message } = response;
+  return message;
+}
 
 // Function to add the multiple-choice buttons to the page
 function renderButtons(choicesArray, correctAnswer) {
